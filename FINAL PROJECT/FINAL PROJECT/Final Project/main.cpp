@@ -84,6 +84,7 @@ int main(int argc, const char * argv[]) {
         cout<<bridgeA1 [a]<<" ";
         
             cout<<"\nYou have chosen the first bridge. Now you must sort these numbers in descending order."<<endl;
+                //to sort
                 int startscan, minindex, minvalue;
                 for (startscan=0; startscan<5; startscan++){
                     minindex=startscan;
