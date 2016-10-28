@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
+
 using namespace std;
 
 int main(int argc, const char * argv[]) {
@@ -19,6 +20,7 @@ int main(int argc, const char * argv[]) {
     char userInput1, userInput3;
     char ch;                //just to enter
     int userInput2, life = 3;
+    int sorting1[5];
     const int bridgeA1 = 30;
     char bridgeeA1[bridgeA1];
     string status, lala, status2;
@@ -49,6 +51,7 @@ int main(int argc, const char * argv[]) {
             srand(seed);
             die1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
             die2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+                
             die3 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
                 die4 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
                 die5 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
@@ -84,34 +87,33 @@ int main(int argc, const char * argv[]) {
         cout<<bridgeA1 [a]<<" ";
         
             cout<<"\nYou have chosen the first bridge. Now you must sort these numbers in descending order."<<endl;
-                //to sort
-                int startscan, minindex, minvalue;
-                for (startscan=0; startscan<5; startscan++){
-                    minindex=startscan;
-                    minvalue=bridgeA1[startscan];
-                    
-                    
-                    for (int index = startscan+1; index<5; index++){
-                        if (bridgeA1[index]<minvalue){
-                            minvalue=bridgeA1[index];
-                            minindex=index;
-                        }
-                    }
-                    
-                    bridgeA1[minindex] = bridgeA1 [startscan];
-                    bridgeA1[startscan] = minvalue;
+                
+                sort (bridgeA1, bridgeA1 + 5);
+                for (int c = 4; c >=0; c--){
+                    cout<<bridgeA1[c]<<" ";         //this is supposed to be the answer
+                }
+
+                int array2[5];
+                for(int j=0; j<5; j++){
+                    cin>>array2[j];
+                }
+                int counter=0;
+                for(int k =0; k<5; k++){
+                    if(bridgeA1[k] == array2[k])
+                        counter++;
                 }
                 
-                    
-            }while (status2 == "false");
+                if(counter==5)
+                    cout<<"The same";
+                
+
+                            }while (status2 == "false");
+            
             }
-        }
         
         
-        
-        
+    }
+    
         
             return 0;
     }
-
-
